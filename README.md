@@ -9,6 +9,8 @@ This project exposes the [sentence-transformers/all-MiniLM-L6-v2](https://huggin
 
 ## Installation
 
+### Local Installation
+
 1. Install the required packages:
 
 ```bash
@@ -27,6 +29,20 @@ or
 uvicorn app:app --host 0.0.0.0 --port 8000
 ```
 
+### Docker Installation (Recommended)
+
+Build and run with Docker:
+
+```bash
+# Build the image
+docker build -t embedding-service .
+
+# Run the container
+docker run -p 8000:8000 embedding-service
+```
+
+The Dockerfile uses multi-stage builds and CPU-only PyTorch for optimal size.
+
 ## API Usage
 
 ### /v1/embeddings [POST]
@@ -35,11 +51,11 @@ uvicorn app:app --host 0.0.0.0 --port 8000
 ```json
 {
   "model": "string",
-  "input": "string" veya ["string1", "string2", ...]
+  "input": "string" or ["string1", "string2", ...]
 }
 ```
 
-**Örnek:**
+**ex:**
 ```json
 {
   "model": "sentence-transformers/all-MiniLM-L6-v2",
