@@ -68,6 +68,14 @@ OPENAI_API_KEY=your-actual-api-key-here
 
 ```bash
 docker-compose up -d
+
+```
+
+or 
+
+```bash
+docker run -d -p 8000:8000 -e OPENAI_API_KEY="test-api-key-123" --name embedding-service emreugur/embedding-service:latest
+
 ```
 
 The Dockerfile uses multi-stage builds and CPU-only PyTorch for optimal size.
