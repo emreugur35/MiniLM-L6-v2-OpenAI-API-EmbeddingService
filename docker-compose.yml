@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  embedding-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:your-service-api-key-here}
+    restart: unless-stopped
